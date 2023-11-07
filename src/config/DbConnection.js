@@ -1,13 +1,14 @@
+require("dotenv").config();
 const { Pool } = require("pg");
 
-const connectionString =
-  "postgres://ibvlxmbi:9GZMt4avxAGiF4AqTaSl7z6qZ9ihY-nW@silly.db.elephantsql.com/ibvlxmbi";
+const dbConfig = {
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  database: process.env.DB_DATABASE,
+};
 
-const clientDb = new Pool({
-  connectionString: connectionString,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-});
+const clientDb = new Pool(dbConfig);
 
 module.exports = clientDb;

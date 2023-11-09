@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const EmailAlreadyExistsError = require("./errors/emailAlreadyExistsError");
 const EmailOrPasswordIncorrectError = require("./errors/emailOrPasswordIncorrectError");
+const UserNotFoundError = require("./errors/userNotFoundError");
 
 class UserService {
   constructor(userRepository) {
@@ -34,6 +35,14 @@ class UserService {
     const passwordMatch = await bcrypt.compare(password, user.password);
 
     if (!passwordMatch) throw new EmailOrPasswordIncorrectError();
+
+    return user;
+  }
+
+  async findById(id) {
+    const user = await this.userRepository.findById(id);
+
+    if (!user) throw new UserNotFoundError();
 
     return user;
   }

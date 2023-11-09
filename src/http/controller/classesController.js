@@ -2,7 +2,6 @@ const makeClassesService = require("../../services/factories/makeClassesService"
 
 const createClassController = async (req, res, next) => {
   const { discipline, teacherId, scheduleCode } = req.body;
-  console.log(discipline, teacherId, scheduleCode);
 
   try {
     const classesService = makeClassesService();

@@ -3,6 +3,7 @@ const UserTypeError = require("./errors/userTypeError");
 const UserNotFoundError = require("./errors/userNotFoundError");
 const ProfessorAvailabilityError = require("./errors/ProfessorAvailabilityError");
 const UnknownScheduleCode = require("./errors/unknownScheduleCode");
+const UnauthorizedPermissionError = require("./errors/unauthorizedPermissionError");
 
 class ClassesService {
   constructor(classesRepository, usersRepository) {

@@ -65,3 +65,11 @@ VALUES
 INSERT INTO user_type (user_type) VALUES ('admin');
 INSERT INTO user_type (user_type) VALUES ('student');
 INSERT INTO user_type (user_type) VALUES ('teacher');
+
+  CREATE TABLE class_enrollment (
+    id SERIAL NOT NULL PRIMARY KEY,
+    class_id INT,
+    student_id INT,
+    FOREIGN KEY (class_id) REFERENCES classes(id),
+    FOREIGN KEY (student_id) REFERENCES users(id)
+);

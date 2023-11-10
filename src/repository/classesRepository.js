@@ -64,6 +64,13 @@ class ClassesRepository {
 
     return result.rows[0];
   }
+
+  async findClassById(id) {
+    const query = `SELECT * FROM classes WHERE id = $1`;
+    const result = await clientDb.query(query, [id]);
+
+    return result.rows[0];
+  }
 }
 
 module.exports = ClassesRepository;

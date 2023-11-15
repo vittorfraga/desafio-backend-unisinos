@@ -90,7 +90,7 @@ class ClassesService {
 
     const classes = await this.classesRepository.listClassesByStudentId(
       studentId
-    ); //TODO - implementar o metodo listClassesByStudentId no repository, controller e rota
+    ); 
     return classes;
   }
 
@@ -101,12 +101,12 @@ class ClassesService {
 
     const classes = await this.classesRepository.listClassesByTeacherId(
       teacherId
-    ); //TODO - implementar o metodo listClassesByTeacherId no repository, controller e rota
+    );
     return classes;
   }
 
   async cancelEnrrolment(classId, studentId) {
-    const classEnrollment = await this.classesRepository.findClassById(classId); //TODO - implementar o metodo findClassById no repository, controller e rota
+    const classEnrollment = await this.classesRepository.findClassById(classId);
     if (!classEnrollment) throw new ClassNotFoundError();
 
     const student = await this.usersRepository.findById(studentId);
@@ -132,7 +132,7 @@ class ClassesService {
   }
 
   async listAllClasses() {
-    const classes = await this.classesRepository.listAllClasses(); //TODO - implementar o metodo no repository, controller e rota
+    const classes = await this.classesRepository.listAllClasses(); 
     return classes;
   }
 }
